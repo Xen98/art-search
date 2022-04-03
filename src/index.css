@@ -23,6 +23,10 @@ body {
 .title__text {
   font-size: 3rem;
   font-weight: normal;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+    user-select: none;
 }
 
 .search {
@@ -31,7 +35,9 @@ body {
 
 .search__form {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .search__input {
@@ -47,12 +53,61 @@ body {
   padding-right: 30px;
   color: #353535;
 }
+
+.search__max-input {
+  margin-top: 25px;
+  text-align: center;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid black;
+  width: 50px;
+  font-family: 'Poiret One', cursive;
+  font-size: 1.3rem;
+}
+
+.search__max-button {
+  margin-right: 10px;
+  margin-left: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.search__max-label {
+  margin-top: 10px;
+}
+
+.art {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.art__query {
+  color: #353535;
+  font-family: 'Poiret One', cursive;
+  font-weight: normal;
+  border-left: 1px solid;
+  border-right: 1px solid;
+  display: inline-block;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  max-width: 600px;
+  overflow-wrap: break-word;
+}
  
 .artContainer {
   width: 80%;
   margin-right: auto;
   margin-left: auto;
-  margin-top: 80px;
+  margin-top: 50px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -67,11 +122,25 @@ body {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
+.artItem__img-container {
+  width: 300px;
+  height: 250px;
+  overflow: hidden;
+}
+
 .artItem__img {
   width: 300px;
   height: 250px;
   object-fit: cover;
   cursor: pointer;
+  transition: .5s;
+}
+
+@media (hover: hover) {
+  .artItem__img:hover { 
+    transform: scale(1.1);
+    filter: brightness(0.4);
+  }
 }
 
 .artItem__info {
@@ -90,6 +159,12 @@ body {
   font-size: 0.8rem;
 }
 
+.footer {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
 @media screen and (max-width: 700px) {
   .title__container {
     width: 300px;
@@ -97,5 +172,13 @@ body {
 
   .search__input {
     width: 300px;
+  }
+
+  .art__query {
+    max-width: 300px;
+  }
+
+  .art {
+    margin-top: 20px;
   }
 }

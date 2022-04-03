@@ -5,13 +5,18 @@ import Title from "./components/Title"
 
 function App() {
   
-  const [artQuery, setArtQuery] = useState('');
+  const [artQuery, setArtQuery] = useState({query: '', limit: 10});
   
   return (
     <>
       <Title />
       <Search setArtQuery={setArtQuery} />
       <GridArt artQuery={artQuery}/>
+      <footer className="footer">
+        <p>Created by Xen</p>
+        <span className="footer__text">@xen_uwu</span>
+      </footer>
+
     </>
   )
 }
