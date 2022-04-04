@@ -1,4 +1,6 @@
 import React, {useState} from "react"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
 function Search( {setArtQuery} ){
   
@@ -44,16 +46,24 @@ function Search( {setArtQuery} ){
 
   return(
     <div className="search">
-      <form className="search__form" onSubmit={handleInputSearch}> 
-        <input 
-        className="search__input" 
-        type="text" 
-        id="searchInput" 
-        value={inputSearch} 
-        onChange={handleInputSeachChange}
-        placeholder='Search...'
-        />
-        
+
+      <form className="search__form" onSubmit={handleInputSearch}>
+
+        <div className="search__container">
+          <input 
+          className="search__input" 
+          type="text" 
+          id="searchInput" 
+          value={inputSearch} 
+          onChange={handleInputSeachChange}
+          placeholder='Search...'
+          />
+          <div className="search__icon-container" onClick={handleInputSearch}>
+            <FontAwesomeIcon className="search__icon" icon={faMagnifyingGlass} />
+          </div>
+        </div>
+
+         
         <div>
           <span className="search__max-button" onClick={handleSubtractMax}>-</span>
           <input
@@ -63,6 +73,7 @@ function Search( {setArtQuery} ){
           value={inputMax}
           onChange={handleInputMaxChange}
           placeholder='Max 30'
+          inputMode="numeric"
           />
           <span className="search__max-button" onClick={handleAddMax}>+</span>
         </div>
